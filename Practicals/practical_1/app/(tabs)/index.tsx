@@ -1,19 +1,12 @@
-import React from "react";
-import { 
-  View, 
-  Text, 
-  TouchableOpacity, 
-  StyleSheet, 
-  Image, 
-  Dimensions 
-} from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions } from "react-native";
+import { useRouter } from "expo-router";
 import Swiper from "react-native-swiper";
 
 const { width } = Dimensions.get("window");
 
 const slides = [
   {
-    image: require("@/assets/images/image.png"), 
+    image: require("@/assets/images/image.png"),
     title: "Get going with us",
     description: "Use GoCar to get across town – from anywhere, at any time.",
   },
@@ -29,23 +22,17 @@ const slides = [
   },
 ];
 
-export default function OnboardingScreen() {
+export default function HomeScreen() {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
       {/* Header with Logo and Language Button */}
       <View style={styles.header}>
-        <Image 
-          source={require("@/assets/images/gojek.png")} 
-          style={styles.logo}
-          resizeMode="contain"
-        />
+        <Image source={require("@/assets/images/gojek.png")} style={styles.logo} resizeMode="contain" />
         <TouchableOpacity style={styles.languageButton}>
-          <Image 
-            source={require("@/assets/images/image2.png")} 
-            style={styles.languageIcon}
-            resizeMode="contain"
-          />
-          <Text style={styles.languageText}>English</Text>
+          {/* <Image source={require("@/assets/images/image2.png")} style={styles.languageIcon} resizeMode="contain" /> */}
+          <Text style={styles.languageText}>🌍 English</Text>
         </TouchableOpacity>
       </View>
 
@@ -61,11 +48,11 @@ export default function OnboardingScreen() {
       </Swiper>
 
       {/* Buttons */}
-      <TouchableOpacity style={styles.loginButton}>
+      <TouchableOpacity style={styles.loginButton} onPress={() => router.push("/app/signup")}>
         <Text style={styles.loginText}>Log in</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.signupButton}>
+      <TouchableOpacity style={styles.signupButton} onPress={() => router.push("/app/signup")}>
         <Text style={styles.signupText}>I'm new, sign me up</Text>
       </TouchableOpacity>
 
@@ -98,7 +85,7 @@ const styles = StyleSheet.create({
     right: 20,
   },
   logo: {
-    width: 120, 
+    width: 120,
     height: 50,
   },
   languageButton: {
@@ -181,8 +168,9 @@ const styles = StyleSheet.create({
     fontSize: 9,
     color: "#777",
     textAlign: "left",
-    marginTop: 10,
+    marginTop: 5,
     paddingHorizontal: 30,
+    marginBottom: 60,
   },
   linkText: {
     color: "#008000",
