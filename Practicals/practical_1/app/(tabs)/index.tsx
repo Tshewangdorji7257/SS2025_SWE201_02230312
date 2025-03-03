@@ -13,7 +13,7 @@ const { width } = Dimensions.get("window");
 
 const slides = [
   {
-    image: require("@/assets/images/image.png"), // Replace with actual images
+    image: require("@/assets/images/image.png"), 
     title: "Get going with us",
     description: "Use GoCar to get across town – from anywhere, at any time.",
   },
@@ -35,13 +35,13 @@ export default function OnboardingScreen() {
       {/* Header with Logo and Language Button */}
       <View style={styles.header}>
         <Image 
-          source={require("@/assets/images/gojek.png")} // Replace with actual logo
+          source={require("@/assets/images/gojek.png")} 
           style={styles.logo}
           resizeMode="contain"
         />
         <TouchableOpacity style={styles.languageButton}>
           <Image 
-            source={require("@/assets/images/image2.png")} // Replace with actual icon
+            source={require("@/assets/images/image2.png")} 
             style={styles.languageIcon}
             resizeMode="contain"
           />
